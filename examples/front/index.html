@@ -40,6 +40,7 @@
     <link href="css/classic-slides.css" rel="stylesheet" />
     <link href="css/style.css" rel="stylesheet" />
     <link href="css/style1.css" rel="stylesheet" />
+    <link href="css/normalize.css" rel="stylesheet" />
 
     　　<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
@@ -258,49 +259,57 @@
     </div>
 <!--第三章-->
     <div id="addons" class="step slide title" data-rel-x="-300" data-rel-y="1100" data-rotate="120">
-            <figure class="book">
+        <div style="display:flex">
+            <div style="width:45%">
+                <div id="transition-demo">过渡效果</div>
+            </div>
+            <div style="width:45%">
 
-                <!-- Front -->
+                <figure class="book">
 
-                <ul class="hardcover_front">
-                    <li>
-                        <div class="coverDesign yellow">
-                            <span class="ribbon">NEW</span>
-                            <h1>CSS</h1>
-<!--                            <p>TRANSFORM</p>-->
-                        </div>
-                    </li>
-                    <li></li>
-                </ul>
+                    <!-- Front -->
 
-                <!-- Pages -->
+                    <ul class="hardcover_front">
+                        <li>
+                            <div class="coverDesign yellow">
+                                <span class="ribbon">NEW</span>
+                                <h1>CSS</h1>
+                                <!--                            <p>TRANSFORM</p>-->
+                            </div>
+                        </li>
+                        <li></li>
+                    </ul>
 
-                <ul class="page">
-                    <li></li>
-                    <li>
-                        <a class="btn" href="#">Download</a>
-                    </li>
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                </ul>
+                    <!-- Pages -->
 
-                <!-- Back -->
+                    <ul class="page">
+                        <li></li>
+                        <li>
+                            <a class="btn" href="#">Download</a>
+                        </li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
 
-                <ul class="hardcover_back">
-                    <li></li>
-                    <li></li>
-                </ul>
-                <ul class="book_spine">
-                    <li></li>
-                    <li></li>
-                </ul>
-            </figure>
+                    <!-- Back -->
+
+                    <ul class="hardcover_back">
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <ul class="book_spine">
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </figure>
+            </div>
+
+        </div>
     </div>
 <!--第五章-->
     <div class="step slide" data-rel-x="-800" data-rel-y="800" data-rotate="150" data-autoplay="3">
-        <div>canvas 实现连结线条效果</div>
-        <iframe style="height:100%" src="https://aaron-xue.github.io/html5demoes/particle/index.html" frameborder="0"></iframe>
+
     </div>
 <!--    第六章-->
 
@@ -310,6 +319,8 @@
 <!--    第七章-->
 
     <div class="step slide" data-rel-x="-1100" data-rel-y="-300" data-rotate="210">
+        <div>canvas 实现连结线条效果</div>
+        <iframe style="height:100%" src="https://aaron-xue.github.io/html5demoes/particle/index.html" frameborder="0"></iframe>
     </div>
 <!--    第八章-->
 
