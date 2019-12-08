@@ -178,7 +178,7 @@
     </div>
 <!--    第一张-->
     <div class="step slide" style="display:flex;flex-direction: column;" data-rel-x="1100" data-rel-y="300" data-rotate="30">
-        <iframe style="width:100%;height:100%;" src="https://www.strml.net/" frameborder="0"></iframe>
+<!--        <iframe style="width:100%;height:100%;" src="https://www.strml.net/" frameborder="0"></iframe>-->
     </div>
 <!--第二章-->
     <div id="transforms3d" class="step slide" data-rel-x="800" data-rel-y="800" data-rotate="60">
@@ -309,7 +309,13 @@
     </div>
 <!--第五章-->
     <div class="step slide" data-rel-x="-800" data-rel-y="800" data-rotate="150" data-autoplay="3">
-
+        <div>
+            <p id="animated_div">CSS3 动画</p>
+        </div>
+        <iframe height="352" style="width: 100%;" scrolling="no" title="CSS 3D Solar System" src="https://codepen.io/juliangarnier/embed/idhuG?height=352&theme-id=default&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+            See the Pen <a href='https://codepen.io/juliangarnier/pen/idhuG'>CSS 3D Solar System</a> by Julian Garnier
+            (<a href='https://codepen.io/juliangarnier'>@juliangarnier</a>) on <a href='https://codepen.io'>CodePen</a>.
+        </iframe>
     </div>
 <!--    第六章-->
 
@@ -329,6 +335,7 @@
 <!--    第九章-->
 
     <div id="acme" class="step slide" data-rel-x="-300" data-rel-y="-1100" data-rotate="270">
+        <iframe id="star-iframe" style="width:100%;height:100%" src="https://stars.chromeexperiments.com/" frameborder="0"></iframe>
     </div>
     <script type="text/javascript">
         var acmeDrawGraph = function() {
@@ -432,7 +439,14 @@
 <script type="text/javascript" src="js/script.js"></script>
 <script type="text/javascript" src="js/prefixfree.js"></script>
 <script type="text/javascript" src="js/ga.js"></script>
-<script>impress().init();</script>
+<script>
+    impress().init();
+    $("#star-iframe").addEventListener('load',function () {
+        $(this).find('video').data('muted',true); //Store elements muted by the button.
+        $(this).find('video').pause(); // or .muted=true to keep playing muted
+    })
+
+</script>
 
 </body>
 </html>
