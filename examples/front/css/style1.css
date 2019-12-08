@@ -145,20 +145,20 @@ code.snippet .comment { font-size: 0.6em; color: #777; }
     margin-bottom: 0.2em;
 }
 
-.step ul {
+/*.step ul {
     font-size: 1.2em;
 }
 
-.step ul li { margin-bottom: 0.1em }
+.step ul li { margin-bottom: 0.1em }*/
 
 .step ul li:before {
-    content: "★";
-    text-shadow: 0 0 5px rgba(50,50,50,0.7);
-    color: transparent;
-    margin-right: 0.5em;
+    /*content: "★";*/
+    /*text-shadow: 0 0 5px rgba(50,50,50,0.7);*/
+    /*color: transparent;*/
+    /*margin-right: 0.5em;*/
 }
 
-.step ul b { font-size: 1.1em }
+.step ul b { font-size: 1.1em /**/}
 
 
 
