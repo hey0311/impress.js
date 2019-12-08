@@ -124,30 +124,18 @@
     </div>
 
     <div id="toc" class="step slide" data-rel-x="1000" data-rel-y="0">
-        <h1>Table of Contents</h1>
+        <h1>动画效果的实现方式</h1>
         <ul>
-            <li><a href="#step-1">A title slide</a></li>
-            <li><a href="#step-2">Table of Contents</a></li>
-            <li><a href="#step-3">Text slide</a></li>
-            <li><a href="#step-4">Bullet points</a></li>
-            <li><a href="#step-5">Blockquote &amp; image</a></li>
-            <li><a href="#step-6">More basic text styles</a></li>
-            <li><a href="#step-7">Motion effects 101</a></li>
-            <li><a href="#addons">Add-ons</a></li>
-            <li><a href="#moreinfo">More info</a></li>
+            <li>js实现 </li>
+            <li>css transition (过渡效果)</li>
+            <li>css animation (动画帧)</li>
+            <li>canvas</li>
+            <li>webGL</li>
         </ul>
 
-        <div class="notes">
-            <p>Table of Contents, with links to other slides of this same presentation.</p>
-
-            <p>Note that instead of absolute positioning we use relative positioning,
-                with the data-rel-x and data-rel-y attributes. This means the step is
-                positioned relative to the foregoing step. In other words, this is
-                equivalent to data-x="0" data-y="-1500".</p>
-        </div>
     </div>
 
-    <div class="step slide">
+<!--    <div class="step slide">
         <h1>A slide with text</h1>
         <p>This slide has a few paragraphs <br />(p element) of normal text.</p>
         <p>Personally I like centered or even justified text, as it looks less boring. This can of course be set in <a href="css/classic-slides.css">the css file</a>.</p>
@@ -175,33 +163,96 @@
 
         <div class="notes">
         </div>
-    </div>
+    </div>-->
 <!--    第一张-->
     <div class="step slide" style="display:flex;flex-direction: column;" data-rel-x="1100" data-rel-y="300" data-rotate="30">
-<!--        <iframe style="width:100%;height:100%;" src="https://www.strml.net/" frameborder="0"></iframe>-->
+        <div class="step-content-container">
+            <div>js 定时器实现动画效果
+                <p>利用定时器每隔16ms刷新一次网页内容和样式。可以实现较复杂的效果，但性能消耗较大。</p>
+                <p>关键点：setInterval,requestAnimationFrame函数</p>
+            </div>
+                    <iframe style="width:100%;height:100%;" src="https://www.strml.net/" frameborder="0"></iframe>
+        </div>
     </div>
 <!--第二章-->
     <div id="transforms3d" class="step slide" data-rel-x="800" data-rel-y="800" data-rotate="60">
+        <div class="step-content-container">
+            <div>css transition (过渡)
+                <p>使元素从一个状态到另一个状态的过程变得平缓，一般用于实现简单动画效果。</p>
+                <p>更轻量，实现简单</p>
+            </div>
+            <div style="display:flex;margin-top:50px;">
+                <div style="width:45%;display: flex;justify-content: center;">
+                    <div id="transition-demo">过渡效果</div>
+                </div>
+                <div style="width:45%;display: flex;justify-content: center;">
+
+                    <figure class="book">
+
+                        <!-- Front -->
+
+                        <ul class="hardcover_front">
+                            <li>
+                                <div class="coverDesign yellow">
+                                    <span class="ribbon">NEW</span>
+                                    <h1>CSS</h1>
+                                    <!--                            <p>TRANSFORM</p>-->
+                                </div>
+                            </li>
+                            <li></li>
+                        </ul>
+
+                        <!-- Pages -->
+
+                        <ul class="page">
+                            <li></li>
+                            <li>
+                                <a class="btn" href="#">Download</a>
+                            </li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+
+                        <!-- Back -->
+
+                        <ul class="hardcover_back">
+                            <li></li>
+                            <li></li>
+                        </ul>
+                        <ul class="book_spine">
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </figure>
+                </div>
+
+            </div>
+        </div>
     </div>
 <!--第三章-->
     <div id="transforms3d-cube" class="step slide" data-rel-x="300" data-rel-y="1100" data-rotate="90">
 
-<!--        <iframe style="width:100%;height:100%;" src="http://html5.huceo.com/taikong/" frameborder="0"></iframe>-->
-        <div class="cube target">
-            <div class="face">front</div>
-            <div class="face">back</div>
-            <div class="face">left</div>
-            <div class="face">right</div>
-            <div class="face">top</div>
-            <div class="face">bottom</div>
-        </div>
+        <div class="step-content-container">
+            <div>css transform 变形
+                <p>旋转rotate、扭曲skew、缩放scale和移动translate,实现简单的3d效果</p>
+            </div>
+            <div >
+                <div class="cube target">
+                    <div class="face">front</div>
+                    <div class="face">back</div>
+                    <div class="face">left</div>
+                    <div class="face">right</div>
+                    <div class="face">top</div>
+                    <div class="face">bottom</div>
+                </div>
 
-        <div class="flip">
-            <code class="snippet">
-                .cube { <br/>
-                <span class="indent">   </span>
-                transform:
-                <span class="code" data-property="transform">
+                <div class="flip">
+                    <code class="snippet">
+                        .cube { <br/>
+                        <span class="indent">   </span>
+                        transform:
+                        <span class="code" data-property="transform">
                 <label for="transform3d-cube-perspective-slider" class="switch slider">
                     perspective(<span class="val">600</span>px)
                     <input type="range" id="transform3d-cube-perspective-slider" min="200" max="2000" value="600" />
@@ -219,123 +270,100 @@
                 </label>
                 <label for="transform3d-cube-rotateZ-slider" class="switch slider">
                     rotateZ(<span class="val">0</span>deg)<input type="range" id="transform3d-cube-rotateZ-slider" min="0" max="360" value="0" /></label></span>;
-                <br/>
+                        <br/>
 
-                <span class="indent">   </span>
-                transform-style: <span class="code" data-property="transformStyle"><span class="switch">preserve-3d</span></span>;
-                <span class="comment">/* default: `flat` */</span><br/>
-                }<br/><br/>
+                        <span class="indent">   </span>
+                        transform-style: <span class="code" data-property="transformStyle"><span class="switch">preserve-3d</span></span>;
+                        <span class="comment">/* default: `flat` */</span><br/>
+                        }<br/><br/>
 
 
-                .face {<br/>
-                <span class="indent">   </span>
-                <label for="transform3d-cube-opacity-slider" class="slider">
-                    opacity: <span class="code" data-property="opacity" data-selector=".face"><span class="val">0.5</span><input type="range" id="transform3d-cube-opacity-slider" min="1" max="10" value="5" step="1" data-divider="10" /></span>;
-                </label><br/>
+                        .face {<br/>
+                        <span class="indent">   </span>
+                        <label for="transform3d-cube-opacity-slider" class="slider">
+                            opacity: <span class="code" data-property="opacity" data-selector=".face"><span class="val">0.5</span><input type="range" id="transform3d-cube-opacity-slider" min="1" max="10" value="5" step="1" data-divider="10" /></span>;
+                        </label><br/>
 
-                <span class="indent">   </span>
-                backface-visibility: <span class="code" data-property="backfaceVisibility" data-selector=".face"><span class="switch disabled">hidden</span></span>;
-                <span class="comment">/* default: `visible` */</span><br/>
-                }
-            </code>
+                        <span class="indent">   </span>
+                        backface-visibility: <span class="code" data-property="backfaceVisibility" data-selector=".face"><span class="switch disabled">hidden</span></span>;
+                        <span class="comment">/* default: `visible` */</span><br/>
+                        }
+                    </code>
 
-            <code class="snippet back">
-                &lt;div class="<span class="cube-flat switch">cube</span>"&gt;<br/>
-                <span class="indent">   </span>&lt;div class="face"&gt;front&lt;/div&gt;<span class="indent"> </span>
-                <span class="comment"><span class="indent">               </span> translateZ(100px)</span><br/>
-                <span class="indent">   </span>&lt;div class="face"&gt;back&lt;/div&gt;<span class="indent">  </span>
-                <span class="comment">rotateY(180deg) translateZ(100px)</span><br/>
-                <span class="indent">   </span>&lt;div class="face"&gt;left&lt;/div&gt;<span class="indent">  </span>
-                <span class="comment">rotateY(-90deg) translateZ(100px)</span><br/>
-                <span class="indent">   </span>&lt;div class="face"&gt;right&lt;/div&gt;<span class="indent"> </span>
-                <span class="comment">rotateY( 90deg) translateZ(100px)</span><br/>
-                <span class="indent">   </span>&lt;div class="face"&gt;top&lt;/div&gt;<span class="indent">   </span>
-                <span class="comment">rotateX( 90deg) translateZ(100px)</span><br/>
-                <span class="indent">   </span>&lt;div class="face"&gt;bottom&lt;/div&gt;<span class="indent"></span>
-                <span class="comment">rotateX(-90deg) translateZ(100px)</span><br/>
-                &lt;/div&gt;
-            </code>
+                    <code class="snippet back">
+                        &lt;div class="<span class="cube-flat switch">cube</span>"&gt;<br/>
+                        <span class="indent">   </span>&lt;div class="face"&gt;front&lt;/div&gt;<span class="indent"> </span>
+                        <span class="comment"><span class="indent">               </span> translateZ(100px)</span><br/>
+                        <span class="indent">   </span>&lt;div class="face"&gt;back&lt;/div&gt;<span class="indent">  </span>
+                        <span class="comment">rotateY(180deg) translateZ(100px)</span><br/>
+                        <span class="indent">   </span>&lt;div class="face"&gt;left&lt;/div&gt;<span class="indent">  </span>
+                        <span class="comment">rotateY(-90deg) translateZ(100px)</span><br/>
+                        <span class="indent">   </span>&lt;div class="face"&gt;right&lt;/div&gt;<span class="indent"> </span>
+                        <span class="comment">rotateY( 90deg) translateZ(100px)</span><br/>
+                        <span class="indent">   </span>&lt;div class="face"&gt;top&lt;/div&gt;<span class="indent">   </span>
+                        <span class="comment">rotateX( 90deg) translateZ(100px)</span><br/>
+                        <span class="indent">   </span>&lt;div class="face"&gt;bottom&lt;/div&gt;<span class="indent"></span>
+                        <span class="comment">rotateX(-90deg) translateZ(100px)</span><br/>
+                        &lt;/div&gt;
+                    </code>
+                </div>
+
+            </div>
         </div>
+<!--        <iframe style="width:100%;height:100%;" src="http://html5.huceo.com/taikong/" frameborder="0"></iframe>-->
     </div>
 <!--第三章-->
     <div id="addons" class="step slide title" data-rel-x="-300" data-rel-y="1100" data-rotate="120">
-        <div style="display:flex">
-            <div style="width:45%">
-                <div id="transition-demo">过渡效果</div>
+        <div class="step-content-container">
+            <div>css animation 动画
+                <p>轻量，摆脱了js的控制，可以硬件加速，提升性能</p>
             </div>
-            <div style="width:45%">
-
-                <figure class="book">
-
-                    <!-- Front -->
-
-                    <ul class="hardcover_front">
-                        <li>
-                            <div class="coverDesign yellow">
-                                <span class="ribbon">NEW</span>
-                                <h1>CSS</h1>
-                                <!--                            <p>TRANSFORM</p>-->
-                            </div>
-                        </li>
-                        <li></li>
-                    </ul>
-
-                    <!-- Pages -->
-
-                    <ul class="page">
-                        <li></li>
-                        <li>
-                            <a class="btn" href="#">Download</a>
-                        </li>
-                        <li></li>
-                        <li></li>
-                        <li></li>
-                    </ul>
-
-                    <!-- Back -->
-
-                    <ul class="hardcover_back">
-                        <li></li>
-                        <li></li>
-                    </ul>
-                    <ul class="book_spine">
-                        <li></li>
-                        <li></li>
-                    </ul>
-                </figure>
-            </div>
-
+            <p id="animated_div" style="margin:20px 0 !important;">CSS3 动画</p>
+            <iframe style="height:500px;" src="https://www.17sucai.com/preview/1528155/2019-04-21/gh/demo.html" frameborder="0"></iframe>
         </div>
     </div>
 <!--第五章-->
     <div class="step slide" data-rel-x="-800" data-rel-y="800" data-rotate="150" data-autoplay="3">
-        <div>
-            <p id="animated_div">CSS3 动画</p>
+        <div class="step-content-container">
+            <div>html canvas
+                <p>js实现复杂的动画效果，可交互性强</p>
+            </div>
+            <iframe style="width:100%;height: 100%;" src="http://html5.huceo.com/clickhuahuan/" frameborder="0"></iframe>
         </div>
-        <iframe height="352" style="width: 100%;" scrolling="no" title="CSS 3D Solar System" src="https://codepen.io/juliangarnier/embed/idhuG?height=352&theme-id=default&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
-            See the Pen <a href='https://codepen.io/juliangarnier/pen/idhuG'>CSS 3D Solar System</a> by Julian Garnier
-            (<a href='https://codepen.io/juliangarnier'>@juliangarnier</a>) on <a href='https://codepen.io'>CodePen</a>.
-        </iframe>
     </div>
 <!--    第六章-->
 
     <div class="step slide" data-rel-x="-1100" data-rel-y="300" data-rotate="180">
-        <iframe style="width:100%;height: 100%;" src="http://html5.huceo.com/clickhuahuan/" frameborder="0"></iframe>
+        <div class="step-content-container">
+            <div>html canvas
+                <p>粒子背景特效</p>
+            </div>
+            <iframe style="height:100%" src="https://aaron-xue.github.io/html5demoes/particle/index.html" frameborder="0"></iframe>
+        </div>
     </div>
 <!--    第七章-->
 
     <div class="step slide" data-rel-x="-1100" data-rel-y="-300" data-rotate="210">
-        <div>canvas 实现连结线条效果</div>
-        <iframe style="height:100%" src="https://aaron-xue.github.io/html5demoes/particle/index.html" frameborder="0"></iframe>
+        <div class="step-content-container">
+            <div>html webGL
+                <p>实际上是JavaScript操作一些OpenGL接口,目前有易于使用的库如Three.js，Egert.js等</p>
+            </div>
+                    <iframe id="star-iframe" style="width:100%;height:100%" src="https://stars.chromeexperiments.com/" frameborder="0"></iframe>
+        </div>
     </div>
 <!--    第八章-->
 
     <div id="markdown" class="step slide markdown" data-rel-x="-800" data-rel-y="-800" data-rotate="240">
+        <div class="step-content-container">
+            <div>html canvas
+                <p>常用图形库Echarts也是基于canvas开发的</p>
+            </div>
+            <div id="chart-container" style="height:100%;"></div>
+        </div>
     </div>
 <!--    第九章-->
 
     <div id="acme" class="step slide" data-rel-x="-300" data-rel-y="-1100" data-rotate="270">
-        <iframe id="star-iframe" style="width:100%;height:100%" src="https://stars.chromeexperiments.com/" frameborder="0"></iframe>
     </div>
     <script type="text/javascript">
         var acmeDrawGraph = function() {
@@ -439,13 +467,141 @@
 <script type="text/javascript" src="js/script.js"></script>
 <script type="text/javascript" src="js/prefixfree.js"></script>
 <script type="text/javascript" src="js/ga.js"></script>
+<script type="text/javascript" src="js/echarts.min.js"></script>
 <script>
-    impress().init();
-    $("#star-iframe").addEventListener('load',function () {
+    document.getElementById("star-iframe").addEventListener('load',function () {
         $(this).find('video').data('muted',true); //Store elements muted by the button.
         $(this).find('video').pause(); // or .muted=true to keep playing muted
-    })
+    });
+    var myChart = echarts.init(document.getElementById('chart-container'));
+    var app={};
+var option = {
+    title: {
+        text: '动态数据',
+        subtext: '纯属虚构'
+    },
+    tooltip: {
+        trigger: 'axis',
+        axisPointer: {
+            type: 'cross',
+            label: {
+                backgroundColor: '#283b56'
+            }
+        }
+    },
+    legend: {
+        data:['最新成交价', '预购队列']
+    },
+    toolbox: {
+        show: true,
+        feature: {
+            dataView: {readOnly: false},
+            restore: {},
+            saveAsImage: {}
+        }
+    },
+    dataZoom: {
+        show: false,
+        start: 0,
+        end: 100
+    },
+    xAxis: [
+        {
+            type: 'category',
+            boundaryGap: true,
+            data: (function (){
+                var now = new Date();
+                var res = [];
+                var len = 10;
+                while (len--) {
+                    res.unshift(now.toLocaleTimeString().replace(/^\D*/,''));
+                    now = new Date(now - 2000);
+                }
+                return res;
+            })()
+        },
+        {
+            type: 'category',
+            boundaryGap: true,
+            data: (function (){
+                var res = [];
+                var len = 10;
+                while (len--) {
+                    res.push(10 - len - 1);
+                }
+                return res;
+            })()
+        }
+    ],
+    yAxis: [
+        {
+            type: 'value',
+            scale: true,
+            name: '价格',
+            max: 30,
+            min: 0,
+            boundaryGap: [0.2, 0.2]
+        },
+        {
+            type: 'value',
+            scale: true,
+            name: '预购量',
+            max: 1200,
+            min: 0,
+            boundaryGap: [0.2, 0.2]
+        }
+    ],
+    series: [
+        {
+            name:'预购队列',
+            type:'bar',
+            xAxisIndex: 1,
+            yAxisIndex: 1,
+            data:(function (){
+                var res = [];
+                var len = 10;
+                while (len--) {
+                    res.push(Math.round(Math.random() * 1000));
+                }
+                return res;
+            })()
+        },
+        {
+            name:'最新成交价',
+            type:'line',
+            data:(function (){
+                var res = [];
+                var len = 0;
+                while (len < 10) {
+                    res.push((Math.random()*10 + 5).toFixed(1) - 0);
+                    len++;
+                }
+                return res;
+            })()
+        }
+    ]
+};
 
+app.count = 11;
+setInterval(function (){
+    axisData = (new Date()).toLocaleTimeString().replace(/^\D*/,'');
+
+    var data0 = option.series[0].data;
+    var data1 = option.series[1].data;
+    data0.shift();
+    data0.push(Math.round(Math.random() * 1000));
+    data1.shift();
+    data1.push((Math.random() * 10 + 5).toFixed(1) - 0);
+
+    option.xAxis[0].data.shift();
+    option.xAxis[0].data.push(axisData);
+    option.xAxis[1].data.shift();
+    option.xAxis[1].data.push(app.count++);
+
+    myChart.setOption(option);
+}, 2100);
+
+impress().init();
 </script>
 
 </body>
