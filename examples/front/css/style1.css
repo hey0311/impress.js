@@ -200,7 +200,7 @@ code.snippet .comment { font-size: 0.6em; color: #777; }
     font-weight: normal;
     font-size: 0.27em;
 
-    transform: translateZ(-50px);
+    transform: translateZ(-80px);
 }
 
 #title h1 .d3 {
@@ -212,7 +212,7 @@ code.snippet .comment { font-size: 0.6em; color: #777; }
     display: inline-block;
     font-weight: normal;
     font-size: 0.6em;
-    transform: translateY(-0.6em) translateZ(50px);
+    transform: translateY(-0.6em) translateZ(80px);
 }
 
 #title .author {
@@ -460,6 +460,7 @@ code.snippet .comment { font-size: 0.6em; color: #777; }
 }
 
 .cube.target {
+    /*transform: translateZ(50px) !important;*/
     width: 204px;
     height: 204px;
     transform-style: preserve-3d;

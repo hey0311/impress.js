@@ -42,7 +42,6 @@
     <link href="css/style1.css" rel="stylesheet" />
     <link href="css/normalize.css" rel="stylesheet" />
 
-    　　<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 
 </head>
 
@@ -119,18 +118,18 @@
 
         <span class="short">前端分享之</span>
         <h1>
-            <span class="transforms">动画效果展示</span>
+            <span class="transforms">动画效果</span>
         </h1>
     </div>
 
     <div id="toc" class="step slide" data-rel-x="1000" data-rel-y="0">
-        <h1>动画效果的实现方式</h1>
+        <h2>动画效果的实现方式</h2>
         <ul>
             <li>js实现 </li>
             <li>css transition (过渡效果)</li>
             <li>css animation (动画帧)</li>
-            <li>canvas</li>
-            <li>webGL</li>
+            <li>html canvas</li>
+            <li>html svg</li>
         </ul>
 
     </div>
@@ -171,7 +170,7 @@
                 <p>利用定时器每隔16ms刷新一次网页内容和样式。可以实现较复杂的效果，但性能消耗较大。</p>
                 <p>关键点：setInterval,requestAnimationFrame函数</p>
             </div>
-                    <iframe style="width:100%;height:100%;" src="https://www.strml.net/" frameborder="0"></iframe>
+                    <iframe id="strml-iframe" style="width:100%;height:100%;" src="https://www.strml.net/" frameborder="0"></iframe>
         </div>
     </div>
 <!--第二章-->
@@ -237,7 +236,7 @@
             <div>css transform 变形
                 <p>旋转rotate、扭曲skew、缩放scale和移动translate,实现简单的3d效果</p>
             </div>
-            <div >
+            <div style="transform: translateZ(20px)">
                 <div class="cube target">
                     <div class="face">front</div>
                     <div class="face">back</div>
@@ -323,7 +322,7 @@
         </div>
     </div>
 <!--第五章-->
-    <div class="step slide" data-rel-x="-800" data-rel-y="800" data-rotate="150" data-autoplay="3">
+    <div class="step slide" data-rel-x="-800" data-rel-y="800" data-rotate="150" >
         <div class="step-content-container">
             <div>html canvas
                 <p>js实现复杂的动画效果，可交互性强</p>
@@ -345,90 +344,32 @@
 
     <div class="step slide" data-rel-x="-1100" data-rel-y="-300" data-rotate="210">
         <div class="step-content-container">
-            <div>html webGL
-                <p>实际上是JavaScript操作一些OpenGL接口,目前有易于使用的库如Three.js，Egert.js等</p>
-            </div>
-                    <iframe id="star-iframe" style="width:100%;height:100%" src="https://stars.chromeexperiments.com/" frameborder="0"></iframe>
-        </div>
-    </div>
-<!--    第八章-->
-
-    <div id="markdown" class="step slide markdown" data-rel-x="-800" data-rel-y="-800" data-rotate="240">
-        <div class="step-content-container">
             <div>html canvas
                 <p>常用图形库Echarts也是基于canvas开发的</p>
             </div>
             <div id="chart-container" style="height:100%;"></div>
         </div>
     </div>
+<!--    第八章-->
+
+    <div id="markdowna" class="step slide" data-rel-x="-800" data-rel-y="-800" data-rotate="240">
+        <div class="step-content-container">
+            <div>html webGL
+                <p>实际上是JavaScript操作一些OpenGL接口,目前有易于使用的库如Three.js，Egert.js等</p>
+            </div>
+            <iframe id="star-iframe" style="width:100%;height:100%" src="https://stars.chromeexperiments.com/" frameborder="0"></iframe>
+        </div>
+    </div>
 <!--    第九章-->
 
     <div id="acme" class="step slide" data-rel-x="-300" data-rel-y="-1100" data-rotate="270">
     </div>
-    <script type="text/javascript">
-        var acmeDrawGraph = function() {
-            var profits = {};
-
-            // Q1-Q2: get innerHTML, remove €
-            var value = document.getElementById('acme-q1').innerHTML;
-            if( value[value.length-1] == "€" ) value = value.substring(0, value.length-1);
-            profits['q1'] = value;
-            var value = document.getElementById('acme-q2').innerHTML;
-            if( value[value.length-1] == "€" ) value = value.substring(0, value.length-1);
-            profits['q2'] = value;
-
-            // Q3-Q4: get input.value
-            profits['q3'] = document.getElementById('acme-q3').value;
-            profits['q4'] = document.getElementById('acme-q4').value;
-            // Convert all to numeric value, and remember max value for scaling purposes.
-            var max = profits['q1'];
-            for ( var q in profits ) {
-                profits[q] = isNaN(profits[q]) ? 0 : Number(profits[q]);
-                if( profits[q] > max ) {
-                    max = profits[q];
-                }
-            }
-
-            // Draw the bar graph
-            for ( var q in profits ) {
-                var h = 200 * profits[q] / max;
-                var div = document.getElementById('acme-graph-'+q);
-                div.style = 'height: ' + h + 'px';
-            }
-        };
-        // This draws the first 2 bars during page load
-        acmeDrawGraph();
-    </script>
 
     <!--
         This step also sets a custom data-transition-duration. All of the above steps used the value set
         in the root div#impress element, but it is also allowed to set it for each step. Since transitioning
         to this step will rotate twice around it's axis, we give the transition a bit more time here.
     -->
-    <div id="moreinfo" class="step slide" data-x="2020" data-y="700" data-rotate="720" data-transition-duration="2000">
-        <h1>More info</h1>
-        <ul>
-            <li><a href="https://github.com/impress/impress.js/blob/master/DOCUMENTATION.md">DOCUMENTATION.md</a> is the API reference.
-            </li>
-            <li><a href="https://github.com/impress/impress.js/blob/master/examples/classic-slides/index.html">Source of this presentation itself</a> is commented</li>
-            <li><a href="http://impress.github.io/impress.js/">Advanced Impress.js demo</a> by <a href="http://twitter.com/bartaz">@bartaz</a>
-                <ul>
-                    <li>Again, the <a href="http://github.com/impress/impress.js/blob/master/index.html">html</a>
-                        and <a href="https://github.com/impress/impress.js/blob/master/css/impress-demo.css">css</a> source is well commented.</li>
-                </ul>
-            </li>
-            <li>More examples and demos:
-                <ul>
-                    <li><a href="https://github.com/impress/impress.js/tree/master/examples">examples/</a> in this repository</li>
-                    <li><a href="https://github.com/impress/impress.js/wiki/Examples-and-demos">on the impress.js wiki</a></li>
-                </ul>
-            </li>
-            <li>Check out <a href="https://github.com/impress/impressionist">Impressionist</a>: a 3D GUI to create impress.js presentations</li>
-        </ul>
-
-        <div class="notes">
-        </div>
-    </div>
 
     <!-- This last, empty "slide" is set to be very large using the data-scale attribute,
          so that it covers all the other slides you just saw.
@@ -463,16 +404,23 @@
     You also need to call a `impress().init()` function to initialize impress.js presentation.
     And you should do it in the end of your document.
 -->
+<script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="../../js/impress.js"></script>
 <script type="text/javascript" src="js/script.js"></script>
 <script type="text/javascript" src="js/prefixfree.js"></script>
 <script type="text/javascript" src="js/ga.js"></script>
 <script type="text/javascript" src="js/echarts.min.js"></script>
 <script>
-    document.getElementById("star-iframe").addEventListener('load',function () {
+    document.getElementById("strml-iframe").onload=function () {
+        console.log(
+            'into event'
+            ,$('#pause-resume')
+        )
+        $('#pause-resume').click(); //Store elements muted by the button.
+    };
+    document.getElementById("star-iframe").onload=function () {
         $(this).find('video').data('muted',true); //Store elements muted by the button.
-        $(this).find('video').pause(); // or .muted=true to keep playing muted
-    });
+    };
     var myChart = echarts.init(document.getElementById('chart-container'));
     var app={};
 var option = {
